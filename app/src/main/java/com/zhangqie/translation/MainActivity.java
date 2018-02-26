@@ -32,12 +32,24 @@ public class MainActivity extends AppCompatActivity{
                 startActivityForResult(intent,1);
             }
         };
-        handler.postDelayed(runnable,2000);
+        handler.postDelayed(runnable,1000);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1){
+            if (resultCode == 1){
+                finish();
+            }
+        }
     }
 
     @Override
     protected void onDestroy() {
-
+        handler.removeCallbacks(runnable);
+        handler = null;
         super.onDestroy();
     }
 }
