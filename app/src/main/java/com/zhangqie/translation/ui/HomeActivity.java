@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import com.zhangqie.translation.R;
 import com.zhangqie.translation.base.BaseActivity;
 import com.zhangqie.translation.ui.activity.A;
+import com.zhangqie.translation.ui.activity.AboutActivity;
 import com.zhangqie.translation.ui.fragment.HomeFragment;
 
 import java.util.ArrayList;
@@ -109,7 +110,15 @@ public class HomeActivity  extends BaseActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_sound) {
+            return true;
+        }
+        if (id == R.id.action_photo) {
+            return true;
+        }
+        if (id == R.id.action_settings){
+            Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -127,15 +136,16 @@ public class HomeActivity  extends BaseActivity
         }  else if (id == R.id.nav_slideshow) {
             Intent intent = new Intent(HomeActivity.this, A.class);
             startActivity(intent);
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_photo) {
 
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
+            startActivity(intent);
         }
 
-        drawer.closeDrawer(GravityCompat.START);
+        //drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 

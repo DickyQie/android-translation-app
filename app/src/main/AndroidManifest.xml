@@ -22,6 +22,8 @@
         <activity android:name=".ui.HomeActivity"/>
         <activity android:name=".ui.activity.NewsContentActivity"/>
         <activity android:name=".ui.activity.A"/>
+        <activity android:name=".ui.activity.ModuleActivity"/>
+        <activity android:name=".ui.activity.AboutActivity"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

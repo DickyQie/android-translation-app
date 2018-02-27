@@ -7,9 +7,13 @@
             android:icon="@drawable/ic_account_balance_black_24dp"
             android:title="我的首页" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_create_black_24dp"
-            android:title="短信翻译" />
+            android:id="@+id/nav_sound"
+            android:icon="@drawable/ic_volume_up_black"
+            android:title="语音翻译" />
+        <item
+            android:id="@+id/nav_photo"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="拍照翻译" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_manage"
@@ -20,8 +24,8 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="好友分享" />
+                android:icon="@drawable/ic_create_black_24dp"
+                android:title="短信翻译" />
             <item
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"

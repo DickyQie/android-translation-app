@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         >
         <ImageView
             android:layout_width="90dp"
@@ -28,7 +30,7 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_marginTop="7dp"
-                android:text="新闻资讯"
+                android:text="新闻资讯(天气焦点，四季养生...)"
                 android:lines="2"
                 android:ellipsize="end"
                 android:textColor="@android:color/black"

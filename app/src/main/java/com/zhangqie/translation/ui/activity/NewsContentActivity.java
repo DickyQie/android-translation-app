@@ -47,7 +47,7 @@ public class NewsContentActivity extends BaseActivity {
             getWindow().setStatusBarColor(getResources().getColor(R.color.colorGrayb));
         }
         publicTopClose.setImageDrawable(UtilImags.tintDrawable(this, R.mipmap.icon_back, ColorStateList.valueOf(Color.GRAY)));
-        publicTopTitle.setText("评论列表");
+        publicTopTitle.setText("歆语资讯");
         webview.loadUrl(urls);
     }
 
