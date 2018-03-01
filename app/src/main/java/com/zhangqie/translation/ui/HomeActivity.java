@@ -18,7 +18,10 @@ import com.zhangqie.translation.R;
 import com.zhangqie.translation.base.BaseActivity;
 import com.zhangqie.translation.ui.activity.A;
 import com.zhangqie.translation.ui.activity.AboutActivity;
+import com.zhangqie.translation.ui.activity.ModuleActivity;
+import com.zhangqie.translation.ui.fragment.B;
 import com.zhangqie.translation.ui.fragment.HomeFragment;
+import com.zhangqie.translation.ui.fragment.SoundFragment;
 
 import java.util.ArrayList;
 
@@ -51,14 +54,18 @@ public class HomeActivity  extends BaseActivity
 
     @Override
     protected void initView() {
-        setSupportActionBar(toolbar);
+        try {
+            setSupportActionBar(toolbar);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+            ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                    this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            drawer.setDrawerListener(toggle);
+            toggle.syncState();
 
-        navigationView.setNavigationItemSelectedListener(this);
+            navigationView.setNavigationItemSelectedListener(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -66,23 +73,28 @@ public class HomeActivity  extends BaseActivity
     protected void initBeforeData() {
         fragmentManager = getSupportFragmentManager();
         fragmentArrayList.add(new HomeFragment());
+        fragmentArrayList.add(new SoundFragment());
         showFragment(0);
     }
 
     private void showFragment(int page) {
-        FragmentTransaction mFragmentTransaction = fragmentManager
-                .beginTransaction();
-        if (mCurrentFragment != null) {
-            mFragmentTransaction.hide(mCurrentFragment);
+        try {
+            FragmentTransaction mFragmentTransaction = fragmentManager
+                    .beginTransaction();
+            if (mCurrentFragment != null) {
+                mFragmentTransaction.hide(mCurrentFragment);
+            }
+            mCurrentFragment = fragmentArrayList.get(page);
+            if (mCurrentFragment.isAdded())
+            {
+                mFragmentTransaction.show(mCurrentFragment);
+            }else {
+                mFragmentTransaction.add(R.id.fragment, mCurrentFragment,mCurrentFragment.getClass().getName());
+            }
+            mFragmentTransaction.commitAllowingStateLoss();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        mCurrentFragment = fragmentArrayList.get(page);
-        if (mCurrentFragment.isAdded())
-        {
-            mFragmentTransaction.show(mCurrentFragment);
-        }else {
-            mFragmentTransaction.add(R.id.fragment, mCurrentFragment,mCurrentFragment.getClass().getName());
-        }
-        mFragmentTransaction.commitAllowingStateLoss();
     }
 
 
@@ -111,9 +123,14 @@ public class HomeActivity  extends BaseActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_sound) {
+            Intent intentb = new Intent(HomeActivity.this, ModuleActivity.class);
+            intentb.putExtra("resId",R.id.tranl_replication);
+            startActivity(intentb);
             return true;
         }
         if (id == R.id.action_photo) {
+            showFragment(1);
+            drawer.closeDrawer(GravityCompat.START);
             return true;
         }
         if (id == R.id.action_settings){
@@ -132,19 +149,22 @@ public class HomeActivity  extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
-        }  else if (id == R.id.nav_slideshow) {
+            showFragment(0);
+            drawer.closeDrawer(GravityCompat.START);
+        }else if (id == R.id.nav_sound) {
+            showFragment(1);
+            drawer.closeDrawer(GravityCompat.START);
+        }else if (id == R.id.nav_photo) {
+
+        }else if (id == R.id.nav_slideshow) {
             Intent intent = new Intent(HomeActivity.this, A.class);
             startActivity(intent);
-        } else if (id == R.id.nav_photo) {
-
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
             Intent intent = new Intent(HomeActivity.this, AboutActivity.class);
             startActivity(intent);
         }
-
         //drawer.closeDrawer(GravityCompat.START);
         return true;
     }

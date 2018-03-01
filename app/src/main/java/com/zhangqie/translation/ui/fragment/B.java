@@ -1,35 +1,35 @@
-package com.zhangqie.translation.ui.activity;
+package com.zhangqie.translation.ui.fragment;
 
 import com.zhangqie.translation.R;
-import com.zhangqie.translation.base.BasenActivity;
+import com.zhangqie.translation.base.BasenFragment;
 import com.zhangqie.translation.presenter.MainPresenter;
 import com.zhangqie.translation.view.IView;
 
 /**
- * Created by zhangqie on 2017/12/21.
+ * Created by Administrator on 2018/2/28.
  */
 
-public class A extends BasenActivity<IView,MainPresenter> implements IView {
+public class B extends BasenFragment<IView,MainPresenter> implements IView {
 
 
     @Override
-    protected int setMainLayout() {
-        return R.layout.nav_header_main;
+    public MainPresenter createPresenter() {
+        return new MainPresenter();
+    }
+
+    @Override
+    protected int initLayout() {
+        return R.layout.fragment_main;
     }
 
     @Override
     protected void initView() {
-        p.showVersionAPI();
+
     }
 
     @Override
     protected void initBeforeData() {
 
-    }
-
-    @Override
-    public MainPresenter createPresenter() {
-        return new MainPresenter();
     }
 
     @Override

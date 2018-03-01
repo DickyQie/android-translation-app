@@ -1,19 +1,14 @@
 package com.zhangqie.translation.ui.activity;
 
-import android.content.res.ColorStateList;
-import android.graphics.Color;
-import android.os.Build;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.zhangqie.translation.R;
 import com.zhangqie.translation.base.BaseActivity;
-import com.zhangqie.translation.tool.UtilImags;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -27,10 +22,7 @@ public class NewsContentActivity extends BaseActivity {
 
     @BindView(R.id.webview)
     WebView webview;
-
-    @BindView(R.id.public_top_close)
-    ImageButton publicTopClose;
-    @BindView(R.id.public_top_title)
+    @BindView(R.id.home_top_name)
     TextView publicTopTitle;
 
     String urls="http://wx.weather.com.cn/mtqxw/index_w.shtml";
@@ -42,11 +34,6 @@ public class NewsContentActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            setStatusTextColor();
-            getWindow().setStatusBarColor(getResources().getColor(R.color.colorGrayb));
-        }
-        publicTopClose.setImageDrawable(UtilImags.tintDrawable(this, R.mipmap.icon_back, ColorStateList.valueOf(Color.GRAY)));
         publicTopTitle.setText("歆语资讯");
         webview.loadUrl(urls);
     }
@@ -99,10 +86,10 @@ public class NewsContentActivity extends BaseActivity {
         }
     }
 
-    @OnClick({R.id.public_top_close, R.id.public_top_title})
+    @OnClick({R.id.home_tour_close})
     public void onClick(View view) {
        switch (view.getId()){
-           case R.id.public_top_close:
+           case R.id.home_tour_close:
                if (isBack){
                    finish();
                }else {
@@ -111,7 +98,6 @@ public class NewsContentActivity extends BaseActivity {
                break;
        }
     }
-
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {

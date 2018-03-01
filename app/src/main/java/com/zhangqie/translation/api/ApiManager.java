@@ -24,10 +24,9 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
  *
  */
 public class ApiManager {
-    String GTIHUB_ULR = " http://gc.ditu.aliyun.com/";
-    String TG_ULR = "http://ip.taobao.com/";
     String URL3="http://api.map.baidu.com/";
     String URL4= "https://api.github.com";
+    String BAIDUTRAN_URL = "https://fanyi-api.baidu.com/";
 
     /**
      * 前缀url不同则ApiService不同，尽量一个前缀
@@ -111,7 +110,7 @@ public class ApiManager {
 
             Retrofit retrofit = new Retrofit.Builder()
                     .client(okHttpClient)
-                    .baseUrl(URL4)//这里是GTIHUB_ULR的，调试，改了
+                    .baseUrl(BAIDUTRAN_URL)//这里是GTIHUB_ULR的，调试，改了
                     .addConverterFactory(StringConverterFactory.create())
                     .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                     .build();

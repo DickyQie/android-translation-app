@@ -46,7 +46,21 @@
                     android:layout_alignParentRight="true"
                     android:gravity="center_vertical"
                     android:textSize="16sp"
+                    android:visibility="gone"
                     />
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/spinner"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16sp"
+                    android:paddingLeft="5dp"
+                    android:spinnerMode="dropdown"
+                    />
+
             </RelativeLayout>
             <include layout="@layout/public_horizontal_gray_line"/>
             <EditText
@@ -79,7 +93,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/mm"
-
                     />
               <!--  <ImageView
                     android:layout_width="wrap_content"
@@ -155,7 +168,6 @@
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:text="啊深刻的发生的撒旦法时代发生地方撒的发生地方撒旦发射点发啊速度发啊速度发啊是地方撒"
                 />
             <View
                 android:layout_width="match_parent"

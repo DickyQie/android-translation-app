@@ -3,11 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/public_top"/>
+    <include layout="@layout/public_topn"/>
     <EditText
         android:id="@+id/trabslation_edittext"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="160dp"
         android:background="#FFFFFF"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -17,14 +17,33 @@
         android:paddingLeft="5dp"
         android:paddingTop="10dp"
         android:textSize="15sp" />
+    <LinearLayout
+        android:id="@+id/sound_forword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/back_forword_style"
+        android:padding="5dp"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/mm"
+            />
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:id="@+id/sound_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="15dp"
+            android:visibility="gone"
             >
             <TextView
                 android:layout_width="0dp"
@@ -75,6 +94,12 @@
             android:textSize="18sp"
             />
 
+        <com.zhangqie.translation.widget.WaveView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,12 +113,12 @@
                 android:layout_height="wrap_content"
                 android:text="按住说中文"
                 android:textColor="@android:color/black"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="∨"
+                android:text="v"
                 />
             <LinearLayout
                 android:layout_width="50dp"
@@ -101,12 +126,12 @@
                 android:background="@drawable/text_shape_style"
                 android:gravity="center"
                 >
-            <com.zhangqie.translation.widget.ZQRoundOvalImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/icon_sound_ad"
-                android:padding="2dp"
-                />
+                <com.zhangqie.translation.widget.ZQRoundOvalImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_sound_ad"
+                    android:padding="2dp"
+                    />
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

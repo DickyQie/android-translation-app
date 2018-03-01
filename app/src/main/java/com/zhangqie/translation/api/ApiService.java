@@ -27,4 +27,9 @@ public interface ApiService {
     //http://api.map.baidu.com/telematics/v3/weather?location=%E7%BB%A5%E5%BE%B7&output=json&ak=11ffd27d38deda622f51c9d314d46b17
     @GET("telematics/v3/weather")
     Observable<String> getUser(@QueryMap Map<String,Object> map);
+
+
+    @POST("api/trans/vip/translate")
+    Observable<String> getTranslationRequest(@QueryMap Map<String,Object> map);
+
 }

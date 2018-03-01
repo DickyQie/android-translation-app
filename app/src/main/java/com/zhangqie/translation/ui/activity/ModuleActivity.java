@@ -9,7 +9,6 @@ import android.widget.FrameLayout;
 import com.zhangqie.translation.R;
 import com.zhangqie.translation.base.BaseActivity;
 import com.zhangqie.translation.ui.fragment.FragmentFactory;
-import com.zhangqie.translation.ui.fragment.SoundFragment;
 
 import butterknife.BindView;
 
@@ -19,15 +18,14 @@ import butterknife.BindView;
 
 public class ModuleActivity extends BaseActivity {
 
-
     @BindView(R.id.frame_module)
     FrameLayout frameModule;
 
     FragmentManager fragmentManager;
     Fragment mCurrentFragment;
     public Intent intent;
-    public FragmentTransaction ft;
     public int resId;
+
 
     @Override
     protected int initLayout() {
@@ -36,20 +34,17 @@ public class ModuleActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        try {
-            intent = getIntent();
-            resId = intent.getIntExtra("resId", 0);
-            if (intent.getExtras() != null) {
-                resId = intent.getExtras().getInt("resId");
-            }
-            fragmentManager = getSupportFragmentManager();
-            ft = fragmentManager.beginTransaction();
-            ft.replace(R.id.frame_module, new SoundFragment());
-            ft.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
+        intent = getIntent();
+        resId = intent.getIntExtra("resId", 0);
+        if (intent.getExtras() != null) {
+            resId = intent.getExtras().getInt("resId");
         }
-       // showFragment();
+    }
+
+
+    @Override
+    protected void initBeforeData() {
+        showFragment();
     }
 
     private void showFragment() {
@@ -59,7 +54,7 @@ public class ModuleActivity extends BaseActivity {
         if (mCurrentFragment != null) {
             mFragmentTransaction.hide(mCurrentFragment);
         }
-        mCurrentFragment = new SoundFragment();
+        mCurrentFragment = FragmentFactory.createById(resId);
         if (mCurrentFragment.isAdded())
         {
             mFragmentTransaction.show(mCurrentFragment);
@@ -69,8 +64,4 @@ public class ModuleActivity extends BaseActivity {
         mFragmentTransaction.commitAllowingStateLoss();
     }
 
-    @Override
-    protected void initBeforeData() {
-
-    }
 }

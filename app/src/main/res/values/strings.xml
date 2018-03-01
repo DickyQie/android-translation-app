@@ -1,10 +1,41 @@
 <resources>
     <string name="app_name">指上翻</string>
 
+    <string name="appid">20180226000127310</string>
+    <string name="appkey">K7vuNn2OfyYilpevb29x</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_sound">语音翻译</string>
     <string name="action_photo">拍照翻译</string>
     <string name="action_settings">关于我们</string>
+
+    <string-array name="transl_type_en">
+        <item>zh</item>
+        <item>en</item>
+        <item>jp</item>
+        <item>kor</item>
+        <item>fra</item>
+        <item>spa</item>
+        <item>th</item>
+        <item>ara</item>
+    </string-array>
+
+    <string-array name="transl_type_zh">
+        <item>中文</item>
+        <item>英文</item>
+        <item>日语</item>
+        <item>韩语</item>
+        <item>法语</item>
+        <item>西班牙</item>
+        <item>泰语</item>
+        <item>阿拉伯语</item>
+    </string-array>
+
+
+
+    <string name="no_network">网络未连接</string>
+    <string name="no_network_error">请检查网络是否连接</string>
+
 </resources>

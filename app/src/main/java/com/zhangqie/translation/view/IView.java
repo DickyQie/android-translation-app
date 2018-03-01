@@ -9,11 +9,11 @@ public interface IView {
 
     void onLoadContributorStart();
 
-    void onLoadContribtorComplete(Object object);
+    void onLoadContribtorComplete(String object);
 
     void onNetWork();
 
-    void onError();
+    void onError(String error);
 
     interface IMvpListener{
 

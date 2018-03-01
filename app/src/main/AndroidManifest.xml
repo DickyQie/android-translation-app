@@ -3,6 +3,7 @@
     package="com.zhangqie.translation">
 
     <application
+        android:name=".api.PubcApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,6 +25,13 @@
         <activity android:name=".ui.activity.A"/>
         <activity android:name=".ui.activity.ModuleActivity"/>
         <activity android:name=".ui.activity.AboutActivity"/>
+
+        <activity
+            android:name=".ui.activity.FullScreenActivity"
+            android:screenOrientation="landscape"
+            >
+        </activity>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

@@ -24,10 +24,9 @@ public class MainModelImp extends BaseModel<IView.IMvpListener> implements MainC
 
     @Override
     public void requestData(Map<String, Object> map) {
-        addSubscription(apiService.repoContributors1(), new SubscriberCallBack<String>() {
+        addSubscription(apiService.getTranslationRequest(map), new SubscriberCallBack<String>() {
             @Override
             protected void onSuccess(String result) {
-                Log.i("tt",result);
                 listener.onDataCallBackListenter(result);
             }
 

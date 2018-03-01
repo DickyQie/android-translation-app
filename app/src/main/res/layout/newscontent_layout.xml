@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     >
 
-    <include layout="@layout/public_top"/>
+    <include layout="@layout/public_topn"></include>
     <WebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
