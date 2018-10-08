@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -18,10 +19,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
+import com.baidu.ocr.sdk.OCR;
+import com.baidu.ocr.sdk.OnResultListener;
+import com.baidu.ocr.sdk.exception.OCRError;
+import com.baidu.ocr.sdk.model.AccessToken;
 import com.zhangqie.translation.R;
 import com.zhangqie.translation.api.Api;
 import com.zhangqie.translation.base.BaseFragment;
 import com.zhangqie.translation.base.BasenFragment;
+import com.zhangqie.translation.entity.PhotographInfo;
 import com.zhangqie.translation.entity.TranlsInfo;
 import com.zhangqie.translation.presenter.MainPresenter;
 import com.zhangqie.translation.tool.UtilDB;
@@ -57,6 +63,9 @@ public class HomeFragment extends BasenFragment<IView,MainPresenter> implements 
     private static final String TRANSLACTION_TYPE = "translaction_type";
     private String[] languageen;
     private String[] languagezh;
+    private String result;
+    private PhotographInfo photographInfo;
+
     @Override
     protected int initLayout() {
         return R.layout.fragment_main;
@@ -68,8 +77,37 @@ public class HomeFragment extends BasenFragment<IView,MainPresenter> implements 
         return new MainPresenter();
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+      /*  try {
+            result = UtilDB.SELECTSHAREDDATA("result");
+            Log.i("aaa",result);
+            if (result != null){
+                photographInfo = JSON.parseObject(result,PhotographInfo.class);
+                if (photographInfo != null){
+                    if (photographInfo.getWords_result_num() > 0){
+                        String data = "";
+                        for (int i=0;i<photographInfo.getWords_result().size();i++){
+                            data += photographInfo.getWords_result().get(i).getWords()+"\n";
+                        }
+                        trabslationEdittext.setText(data);
+                        trabslationEdittext.setFocusable(true);
+                    }
+                }
+                UtilDB.DELETESHAREDDATA("result");
+            }
+        } catch (Exception e) {
+            UtilDB.DELETESHAREDDATA("result");
+        }*/
+    }
+
     @Override
     protected void initView() {
+
+
+
         trabslationEdittext.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -99,6 +137,8 @@ public class HomeFragment extends BasenFragment<IView,MainPresenter> implements 
 
             }
         });
+
+
     }
 
     @Override
@@ -171,4 +211,7 @@ public class HomeFragment extends BasenFragment<IView,MainPresenter> implements 
                 break;
         }
     }
+
+
+
 }

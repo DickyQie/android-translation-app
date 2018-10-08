@@ -21,8 +21,6 @@ import butterknife.OnClick;
 
 public class SoundFragment extends BasenFragment<IView,MainPresenter> implements IView{
 
-    @BindView(R.id.home_top_name)
-    TextView publicTopTitle;
     @BindView(R.id.trabslation_edittext)
     EditText trabslationEdittext;
     @BindView(R.id.sound_forword)
@@ -42,7 +40,7 @@ public class SoundFragment extends BasenFragment<IView,MainPresenter> implements
 
     @Override
     protected void initView() {
-        publicTopTitle.setText(R.string.action_sound);
+
     }
 
     @Override
@@ -70,12 +68,9 @@ public class SoundFragment extends BasenFragment<IView,MainPresenter> implements
 
     }
 
-    @OnClick({R.id.home_tour_close,R.id.tranl_full_screen, R.id.tranl_replication, R.id.tranl_sound})
+    @OnClick({R.id.tranl_full_screen, R.id.tranl_replication, R.id.tranl_sound})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.home_tour_close:
-                getActivity().finish();
-                break;
             case R.id.tranl_full_screen:
                 break;
             case R.id.tranl_replication:

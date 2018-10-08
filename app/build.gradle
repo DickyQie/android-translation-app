@@ -35,5 +35,8 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.alibaba:fastjson:1.1.54.android'
+
+    compile files('libs/ocr-sdk.jar')
+    compile project(path: ':ocr_ui')
     testCompile 'junit:junit:4.12'
 }

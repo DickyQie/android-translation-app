@@ -12,8 +12,8 @@
     <string name="action_settings">关于我们</string>
 
     <string-array name="transl_type_en">
-        <item>zh</item>
         <item>en</item>
+        <item>zh</item>
         <item>jp</item>
         <item>kor</item>
         <item>fra</item>
@@ -23,8 +23,8 @@
     </string-array>
 
     <string-array name="transl_type_zh">
-        <item>中文</item>
         <item>英文</item>
+        <item>中文</item>
         <item>日语</item>
         <item>韩语</item>
         <item>法语</item>

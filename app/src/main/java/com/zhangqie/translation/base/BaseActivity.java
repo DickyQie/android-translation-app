@@ -3,7 +3,9 @@ package com.zhangqie.translation.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -31,6 +33,14 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void initBeforeData();
 
+    protected void showToastShort(String msg) {
+        if (!TextUtils.isEmpty(msg)) {
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        }
+    }
+    protected void showToastShort(int msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
 
     /****
      * 状态栏颜色修改

@@ -17,7 +17,7 @@ public class PubcApplication extends Application {
     public void onCreate()
     {
         super.onCreate();
-        preferences = getSharedPreferences("scbdata", MODE_PRIVATE);
+        preferences = getSharedPreferences("zqdata", MODE_PRIVATE);
         editor = preferences.edit();
     }
 
