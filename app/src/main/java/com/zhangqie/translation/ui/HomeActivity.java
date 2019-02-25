@@ -3,6 +3,7 @@ package com.zhangqie.translation.ui;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -85,6 +86,7 @@ public class HomeActivity  extends BaseActivity
             toggle.syncState();
 
             navigationView.setNavigationItemSelectedListener(this);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
